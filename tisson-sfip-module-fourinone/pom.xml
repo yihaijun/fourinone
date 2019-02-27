@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.tisson.sfip.modules</groupId>
+  <artifactId>tisson-sfip-module-fourinone</artifactId>
+  <version>4.17.10</version>
+
+  <name>tisson-sfip-module-fourinone</name>
+  <url>https://github.com/yihaijun/fourinone</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+	<dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+
+  <profiles>
+		<profile>
+			<id>jdk8</id>
+			<activation>  
+					<jdk>1.8</jdk>  
+			</activation>  
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.2</version>
+						<configuration>
+							<encoding>UTF-8</encoding>
+							<source>1.8</source>
+							<target>1.8</target>
+							<compilerVersion>1.8</compilerVersion>
+						</configuration>
+					</plugin>
+ 				</plugins>
+			</build>
+      <properties>  
+        <jar.source>1.8</jar.source>  
+        <jar.target>1.8</jar.target>
+        <jar.classifier>jdk8</jar.classifier>  
+      </properties>    
+		</profile>
+		<profile>
+			<id>jdk7</id>
+			<activation>  
+					<jdk>1.7</jdk>  
+			</activation>  
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.2</version>
+						<configuration>
+							<encoding>UTF-8</encoding>
+							<source>1.7</source>
+							<target>1.7</target>
+							<compilerVersion>1.7</compilerVersion>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+      <properties>  
+        <jar.source>1.7</jar.source>  
+        <jar.target>1.7</jar.target>
+        <jar.classifier>jdk7</jar.classifier>  
+      </properties>    
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+      <plugin>  
+        <artifactId>maven-jar-plugin</artifactId>  
+        <executions>  
+          <execution>  
+            <phase>package</phase>  
+            <goals>  
+              <goal>jar</goal>  
+            </goals>  
+            <configuration>  
+              <classifier>${jar.classifier}</classifier>  
+            </configuration>  
+          </execution>  
+        </executions>  
+      </plugin>
+		</plugins>
+	</build>
+</project>
